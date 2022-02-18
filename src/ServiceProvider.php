@@ -7,6 +7,7 @@ use Alps\CacheEvader\Http\Middleware\StaticCache;
 use Alps\CacheEvader\Modifiers\EvadeCache;
 use Alps\CacheEvader\Tags\CacheEvaderScripts;
 use Illuminate\Routing\Router;
+use Statamic\Statamic;
 use Statamic\StaticCaching\Middleware\Cache;
 
 class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
@@ -35,6 +36,16 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
         $this
             ->bootAddonConfig()
             ->bootAddonMiddleware();
+    }
+
+    public function bootAddon()
+    {
+        Statamic::afterInstalled(function ($command) {
+            $command->call('vendor:publish', [
+                '--tag' => 'statamic-cache-evader',
+                '--force' => true,
+            ]);
+        });
     }
 
     protected function bootAddonMiddleware(): self

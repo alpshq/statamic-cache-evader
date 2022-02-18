@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npx mix",
+    "watch": "npx mix watch",
+    "production": "npx mix --production"
+  },
+  "devDependencies": {
+    "browser-cookies": "^1.2.0",
+    "laravel-mix": "^6.0.42"
+  }
+}

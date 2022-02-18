@@ -1,0 +1,25 @@
+{
+    "name": "alpshq/statamic-cache-evader",
+    "description": "A statamic Addon to help you evade the static cache and support forms on cached pages.",
+    "license": "MIT",
+    "type": "statamic-addon",
+    "autoload": {
+        "psr-4": {
+            "Alps\\CacheEvader\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Cache Evader",
+            "description": "A statamic Addon to help you evade the static cache and support forms on cached pages."
+        },
+        "laravel": {
+            "providers": [
+                "Alps\\CacheEvader\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "~3.2"
+    }
+}

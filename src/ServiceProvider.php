@@ -7,6 +7,7 @@ use Alps\CacheEvader\Http\Middleware\StaticCache;
 use Alps\CacheEvader\Modifiers\EvadeCache;
 use Alps\CacheEvader\Tags\CacheEvaderScripts;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 use Statamic\Statamic;
 use Statamic\StaticCaching\Middleware\Cache;
 
@@ -40,6 +41,12 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
 
     public function bootAddon()
     {
+        $this->registerWebRoutes(function() {
+            Route::get('cache-evader/ping', function() {
+                return response(null, 204);
+            })->name('cache-evader.ping');
+        });
+
         Statamic::afterInstalled(function ($command) {
             $command->call('vendor:publish', [
                 '--tag' => 'statamic-cache-evader',

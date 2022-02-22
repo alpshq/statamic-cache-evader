@@ -1,19 +1,43 @@
-import cookies from 'browser-cookies';
+import { get as getCookie } from 'browser-cookies';
 
-(function(win) {
-  const doc = win.document;
-  const token = cookies.get('XSRF-TOKEN');
+const handleForm = (doc, tokenInput, xsrfToken) => {
+  const xsrfInput = doc.createElement('input');
 
-  [...doc.querySelectorAll('input[name="_token"]')].forEach(inp => {
-    const xsrfInput = doc.createElement('input');
+  xsrfInput.setAttribute('type', 'hidden');
+  xsrfInput.setAttribute('name', '_xsrf_token');
+  xsrfInput.setAttribute('value', xsrfToken);
 
-    xsrfInput.setAttribute('type', 'hidden');
-    xsrfInput.setAttribute('name', '_xsrf_token');
-    xsrfInput.setAttribute('value', token);
+  const parent = tokenInput.parentNode;
 
-    const parent = inp.parentNode;
+  parent.insertBefore(xsrfInput, tokenInput);
+  parent.removeChild(tokenInput);
+};
 
-    parent.insertBefore(xsrfInput, inp);
-    parent.removeChild(inp);
+const getXsrfToken = async () => {
+  const xsrfToken = getCookie('XSRF-TOKEN');
+
+  if (xsrfToken) {
+    return xsrfToken;
+  }
+
+  await fetch('/cache-evader/ping', {
+    method: 'GET',
+    credentials: 'same-origin',
   });
+
+  return getCookie('XSRF-TOKEN');
+}
+
+(async function(win) {
+  const doc = win.document;
+
+  const tokenInputs = [...doc.querySelectorAll('input[name="_token"]')];
+
+  if (!tokenInputs.length) {
+    return;
+  }
+
+  const xsrfToken = await getXsrfToken();
+
+  tokenInputs.forEach(tokenInput => handleForm(doc, tokenInput, xsrfToken));
 })(global);

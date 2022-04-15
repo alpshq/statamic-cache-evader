@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
 
 mix
-  .js('resources/js/app.js', 'dist/js')
+  .js('resources/js/cache-evader.js', 'dist/js')
   .disableNotifications();

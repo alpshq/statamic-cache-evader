@@ -2,9 +2,11 @@
 
 namespace Alps\CacheEvader;
 
+use Alps\CacheEvader\Http\Controllers\RenderController;
 use Alps\CacheEvader\Http\Middleware\SpoofXsrfHeader;
 use Alps\CacheEvader\Http\Middleware\StaticCache;
 use Alps\CacheEvader\Modifiers\EvadeCache;
+use Alps\CacheEvader\Tags\CacheEvaderPartial;
 use Alps\CacheEvader\Tags\CacheEvaderScripts;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +21,7 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
 
     protected $tags = [
         CacheEvaderScripts::class,
+        CacheEvaderPartial::class,
     ];
 
     protected $modifiers = [
@@ -45,6 +48,9 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
             Route::get('cache-evader/ping', function() {
                 return response(null, 204);
             })->name('cache-evader.ping');
+
+            Route::get('cache-evader/render', 'RenderController')
+                ->name('cache-evader.render');
         });
 
         Statamic::afterInstalled(function ($command) {

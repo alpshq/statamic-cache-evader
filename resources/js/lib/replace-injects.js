@@ -85,11 +85,11 @@ const toReplaceableNode = (doc, html) => {
 
   div.innerHTML = html;
 
-  if (div.children.length > 1) {
-    return div;
+  if (div.children.length === 1) {
+    return div.children[0];
   }
 
-  return div.children[0];
+  return div;
 }
 
 const readdScripts = (doc, el) => {

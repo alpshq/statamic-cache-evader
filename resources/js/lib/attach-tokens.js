@@ -28,9 +28,7 @@ const getXsrfToken = async () => {
   return getCookie('XSRF-TOKEN');
 }
 
-(async function(win) {
-  const doc = win.document;
-
+const attachTokens = async (win, doc) => {
   const tokenInputs = [...doc.querySelectorAll('input[name="_token"]')];
 
   if (!tokenInputs.length) {
@@ -40,4 +38,6 @@ const getXsrfToken = async () => {
   const xsrfToken = await getXsrfToken();
 
   tokenInputs.forEach(tokenInput => handleForm(doc, tokenInput, xsrfToken));
-})(global);
+};
+
+export default attachTokens;

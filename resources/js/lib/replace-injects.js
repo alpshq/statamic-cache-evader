@@ -46,7 +46,15 @@ const handleInject = async (win, doc, wrapper) => {
 
   let element = toReplaceableNode(doc, html);
 
-  [...wrapper.attributes].forEach(attr => element.setAttribute(attr.name, attr.value));
+  [...wrapper.attributes].forEach(attr => {
+    let value = attr.value;
+
+    if (attr.name === 'class' && element.hasAttribute(attr.name)) {
+      value += ' ' + element.getAttribute(attr.name);
+    }
+
+    element.setAttribute(attr.name, value);
+  });
 
   element.dataset.resolved = '';
 

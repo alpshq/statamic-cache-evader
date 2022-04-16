@@ -2,7 +2,7 @@
 
 ## 1.3.1 (2022-04-16)
 
-- Class names of root elements of dynamic partials are now preserved -- #567fca4
+- Class names of root elements of dynamic partials are now preserved -- [#567fca4](https://github.com/alpshq/statamic-cache-evader/commit/567fca481a87973f7a69564e1d8ec2f5b31ef05f)
 
 ## 1.3.0 (2022-04-16)
 

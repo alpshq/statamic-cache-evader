@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2 (2022-04-16)
+
+- Empty responses of dynamic partials are now properly handled. -- [#427eb4b](https://github.com/alpshq/statamic-cache-evader/commit/427eb4b)
+
 ## 1.3.1 (2022-04-16)
 
 - Class names of root elements of dynamic partials are now preserved -- [#567fca4](https://github.com/alpshq/statamic-cache-evader/commit/567fca481a87973f7a69564e1d8ec2f5b31ef05f) 

@@ -44,6 +44,11 @@ const handleInject = async (win, doc, wrapper) => {
 
   const html = await response.text();
 
+  if (!html.trim().length) {
+    wrapper.parentNode.removeChild(wrapper);
+    return;
+  }
+
   let element = toReplaceableNode(doc, html);
 
   [...wrapper.attributes].forEach(attr => {

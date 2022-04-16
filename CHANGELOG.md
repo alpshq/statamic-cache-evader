@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1 (2022-04-16)
+
+- Class names of root elements of dynamic partials are now preserved -- #567fca4
+
 ## 1.3.0 (2022-04-16)
 
 - Support for dynamic partials was added: Review the [corresponding PR](https://github.com/alpshq/statamic-cache-evader/pull/2) or checkout the [updated read me](README.md) to learn how to integrate it.

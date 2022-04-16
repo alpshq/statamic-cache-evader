@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.3 (2022-04-16)
+
+- Text-Only responses of dynamic partials are now properly handled. -- [#84e2cfa](https://github.com/alpshq/statamic-cache-evader/commit/84e2cfa)
+
 ## 1.3.2 (2022-04-16)
 
 - Empty responses of dynamic partials are now properly handled. -- [#427eb4b](https://github.com/alpshq/statamic-cache-evader/commit/427eb4b)

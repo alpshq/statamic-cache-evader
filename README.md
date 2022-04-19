@@ -9,9 +9,9 @@ This Addon provides various simple ways to serve **uncached content** on **cache
 
 ## What you can do
 
-- Serve whole uncached pages based on an HTTP GET parameter -- See: **Usage: Cache evading based on HTTP GET parameter**
-- Use Statamic forms on cached pages -- See: **Usage: Forms**
-- **NEW**: Inject uncached partials as part of cached pages -- See: **Usage: Inject uncached partials as part of cached pages**
+- [Serve whole uncached pages based on an HTTP GET parameter](#usage-cache-evading-based-on-http-get-parameter)
+- [Use Statamic forms on cached pages](#usage-forms)
+- **NEW**: [Inject uncached partials as part of cached pages](#usage-inject-uncached-partials-as-part-of-cached-pages)
 
 ## Support
 

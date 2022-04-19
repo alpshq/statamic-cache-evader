@@ -5,13 +5,13 @@
 
 <!-- /statamic:hide -->
 
-This Addon provides various simple ways to serve uncached content and makes it possible to use Statamic forms on cached pages.
+This Addon provides various simple ways to serve **uncached content** on **cached pages** and makes it possible to use Statamic forms on cached pages.
 
 ## What you can do
 
-- Serve whole uncached pages based on an HTTP GET parameter
-- Use Statamic forms on cached pages
-- **NEW**: Inject uncached partials as part of cached pages
+- Serve whole uncached pages based on an HTTP GET parameter -- See: **Usage: Cache evading based on HTTP GET parameter**
+- Use Statamic forms on cached pages -- See: **Usage: Forms**
+- **NEW**: Inject uncached partials as part of cached pages -- See: **Usage: Inject uncached partials as part of cached pages**
 
 ## Support
 

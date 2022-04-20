@@ -14,8 +14,7 @@
 
 ## 1.3.0 (2022-04-16)
 
-- Support for dynamic partials was added:
-  Review the [corresponding PR](https://github.com/alpshq/statamic-cache-evader/pull/2) or checkout the [updated read me](README.md) to learn how to integrate it.
+- Support for dynamic partials was added: Review the [corresponding PR](https://github.com/alpshq/statamic-cache-evader/pull/2) or checkout the [updated read me](README.md) to learn how to integrate it.
 
 ## 1.2.0 (2022-02-22)
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 (2022-04-30)
+
+- Statamic 3.3 is now required
+- Fixed an issue which resulted in TokenMismatchExceptions when submitting forms in Statamic 3.3 -- [#09d4d04](https://github.com/alpshq/statamic-cache-evader/commit/09d4d04)
+
 ## 1.3.3 (2022-04-16)
 
 - Text-Only responses of dynamic partials are now properly handled. -- [#84e2cfa](https://github.com/alpshq/statamic-cache-evader/commit/84e2cfa)

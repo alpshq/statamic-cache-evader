@@ -37,13 +37,16 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
     {
         parent::boot();
 
-        $this
-            ->bootAddonConfig()
-            ->bootAddonMiddleware();
+        $this->bootAddonConfig();
     }
 
     public function bootAddon()
     {
+        /** @var Router $router */
+        $router = $this->app->make(Router::class);
+
+        $router->prependMiddlewareToGroup('web', SpoofXsrfHeader::class);
+
         $this->registerWebRoutes(function() {
             Route::get('cache-evader/ping', function() {
                 return response(null, 204);
@@ -59,16 +62,6 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
                 '--force' => true,
             ]);
         });
-    }
-
-    protected function bootAddonMiddleware(): self
-    {
-        /** @var Router $router */
-        $router = $this->app->make(Router::class);
-
-        $router->prependMiddlewareToGroup('web', SpoofXsrfHeader::class);
-
-        return $this;
     }
 
     protected function bootAddonConfig(): self

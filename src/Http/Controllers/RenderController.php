@@ -10,6 +10,10 @@ class RenderController extends Controller
 {
     public function __invoke(Request $request)
     {
+        if (!$request->hasValidSignature(false)) {
+            abort(401);
+        }
+
         $viewName = $request->input('view');
 
         if (!$viewName) {

@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- The plugin is now compatible with Statamic's replacer based caching middleware.
+
 ## 1.4.1 (2022-05-12)
 
 - **Security-Fix**: The signature of rendering URLs of dynamic partials is now properly checked -- [#a216e5a](https://github.com/alpshq/statamic-cache-evader/commit/a216e5a)

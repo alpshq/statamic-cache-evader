@@ -14,10 +14,20 @@ class StaticCache extends \Statamic\StaticCaching\Middleware\Cache
 
         $paramNames = $config->get('statamic.cache-evader.evade_http_parameter_names');
 
-        if ($request->hasAny($paramNames)) {
-            return $next($request);
+        if (!$request->hasAny($paramNames)) {
+            return parent::handle($request, $next);
         }
 
-        return parent::handle($request, $next);
+        $privateNext = function($request) use ($next) {
+            $response = $next($request);
+
+            $response->headers->add([
+                'X-Statamic-Private' => 'true',
+            ]);
+
+            return $response;
+        };
+
+        return parent::handle($request, $privateNext);
     }
 }

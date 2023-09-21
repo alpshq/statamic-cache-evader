@@ -47,8 +47,8 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
 
         $router->prependMiddlewareToGroup('web', SpoofXsrfHeader::class);
 
-        $this->registerWebRoutes(function() {
-            Route::get('cache-evader/ping', function() {
+        $this->registerWebRoutes(function () {
+            Route::get('cache-evader/ping', function () {
                 return response(null, 204);
             })->name('cache-evader.ping');
 
@@ -66,10 +66,10 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
 
     protected function bootAddonConfig(): self
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/cache-evader.php', 'statamic.cache-evader');
+        $this->mergeConfigFrom(__DIR__ . '/../config/cache-evader.php', 'statamic.cache-evader');
 
         $this->publishes([
-            __DIR__.'/../config/cache-evader.php' => config_path('statamic/cache-evader.php'),
+            __DIR__ . '/../config/cache-evader.php' => config_path('statamic/cache-evader.php'),
         ], 'cache-evader-config');
 
         return $this;

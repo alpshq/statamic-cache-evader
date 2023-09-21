@@ -13,6 +13,6 @@ class CacheEvaderScripts extends Tags
     {
         $scriptSource = '/vendor/statamic-cache-evader/js/cache-evader.js';
 
-        return "<script src=\"${scriptSource}\" defer async></script>";
+        return "<script src=\"{$scriptSource}\" defer async></script>";
     }
 }

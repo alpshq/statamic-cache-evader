@@ -10,13 +10,13 @@ class RenderController extends Controller
 {
     public function __invoke(Request $request)
     {
-        if (!$request->hasValidSignature(false)) {
+        if (! $request->hasValidSignature(false)) {
             abort(401);
         }
 
         $viewName = $request->input('view');
 
-        if (!$viewName) {
+        if (! $viewName) {
             abort(404);
         }
 
@@ -39,6 +39,6 @@ class RenderController extends Controller
 
         $last = $bits->pull($bits->count() - 1);
 
-        return $bits->implode('.').'._'.$last;
+        return $bits->implode('.') . '._' . $last;
     }
 }

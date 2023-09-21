@@ -3,6 +3,7 @@
 ## UNRELEASED
 
 - The plugin is now compatible with Statamic's replacer based caching middleware.
+- The plugin is now compatible with Statamic 4.0.
 
 ## 1.4.1 (2022-05-12)
 

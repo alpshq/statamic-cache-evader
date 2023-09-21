@@ -52,7 +52,7 @@ class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
                 return response(null, 204);
             })->name('cache-evader.ping');
 
-            Route::get('cache-evader/render', 'RenderController')
+            Route::get('cache-evader/render', RenderController::class)
                 ->name('cache-evader.render');
         });
 
